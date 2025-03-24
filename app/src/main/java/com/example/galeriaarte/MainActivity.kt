@@ -40,23 +40,24 @@ class MainActivity : ComponentActivity() {
 }
 //Classe de dados que tem tres propriedades usadas para identificar cada imagem
 data class PecaDeArte(
-    @DrawableRes val imageRes: Int,
-    @StringRes val titulo: Int,
-    @StringRes val artista: Int
+    @DrawableRes val imageRes: Int, //essa anotacao indica que a variavel vai receber um valor id igual a um recurso de imagem
+    @StringRes val titulo: Int, // /\ msm coisa pra string
+    @StringRes val artista: Int,//   |
+    @StringRes val cntDesc: Int
 )
 //Uma lista de objetos. cada um representa um conjunto da obra
 val pecasDeArte = listOf(
-    PecaDeArte(R.drawable.ponterionitero, R.string.tituloPonte, R.string.autorPonte),
-    PecaDeArte(R.drawable.espelho, R.string.tituloEspelho, R.string.autorEspelho),
-    PecaDeArte(R.drawable.montefuji, R.string.tituloFuji, R.string.autorFuji) // Corrigido o nome da imagem
+    PecaDeArte(R.drawable.ponterionitero, R.string.tituloPonte, R.string.autorPonte, R.string.descricaoponte),
+    PecaDeArte(R.drawable.espelho, R.string.tituloEspelho, R.string.autorEspelho, R.string.descricaoespelho),
+    PecaDeArte(R.drawable.montefuji, R.string.tituloFuji, R.string.autorFuji, R.string.descricaofuji) // Corrigido o nome da imagem
 )
 
 @Composable
 fun GaleriaLayout(modifier: Modifier = Modifier) {
-    var etapaAtual by remember { mutableIntStateOf(0) }
-    val pecaArte = pecasDeArte[etapaAtual] // Obter a peça de arte com base na etapa atual
+    var etapaAtual by remember { mutableIntStateOf(0) } //Armazena a tela atual
+    val pecaArte = pecasDeArte[etapaAtual]  //Obtem o conjunto da obra de acordo com a etapa atual
 
-    Column(
+    Column( //coluna principal
         modifier = modifier
             .fillMaxSize()
             .padding(horizontal = 30.dp)
@@ -65,7 +66,7 @@ fun GaleriaLayout(modifier: Modifier = Modifier) {
         verticalArrangement = Arrangement.Top
     ) {
         // Box para a imagem
-        Box(
+        Box( //essa box define os modificadores da imagem, que se ajusta de acordo com a box
             modifier = modifier
                 .fillMaxWidth()
                 .height(430.dp)
@@ -104,13 +105,13 @@ fun GaleriaLayout(modifier: Modifier = Modifier) {
             modifier = modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.Center
         ) {
-            Button(onClick = {
+            Button(onClick = { //transforma a etapa atual, se nao for maior que 0 volta pra ultima imagem
                 etapaAtual = if (etapaAtual > 0) etapaAtual - 1 else pecasDeArte.size - 1
             }) {
                 Text("Imagem anterior")
             }
             Spacer(modifier = Modifier.width(16.dp))
-            Button(onClick = {
+            Button(onClick = { //se a etapa for menor que o tamanha da lista vai para a proxima, se nao volta pra primeira img
                 if (etapaAtual < pecasDeArte.size - 1) etapaAtual += 1
                 else etapaAtual = 0
             }) {
