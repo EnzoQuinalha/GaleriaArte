@@ -44,11 +44,11 @@ data class PecaDeArte(
     @StringRes val titulo: Int,
     @StringRes val artista: Int
 )
-//
+//Uma lista de objetos. cada um representa um conjunto da obra
 val pecasDeArte = listOf(
     PecaDeArte(R.drawable.ponterionitero, R.string.tituloPonte, R.string.autorPonte),
     PecaDeArte(R.drawable.espelho, R.string.tituloEspelho, R.string.autorEspelho),
-    PecaDeArte(R.drawable.mintefuck, R.string.tituloFuji, R.string.autorFuji) // Corrigido o nome da imagem
+    PecaDeArte(R.drawable.montefuji, R.string.tituloFuji, R.string.autorFuji) // Corrigido o nome da imagem
 )
 
 @Composable
