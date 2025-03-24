@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">GaleriaArte</string>
+    <string name="tituloPonte">Ponte Rio-Niterói</string>
+    <string name="autorPonte">Mário Andreazza</string>
+    <string name="tituloEspelho">Salar de Uyuni</string>
+    <string name="autorEspelho">Jesus Cristo</string>
+    <string name="tituloFuji">Monte Fuji</string>
+    <string name="autorFuji">J.C.</string>
+</resources>
