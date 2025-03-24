@@ -81,7 +81,7 @@ fun GaleriaLayout(modifier: Modifier = Modifier) {
                 modifier = modifier
                     .fillMaxSize(),
                 painter = painterResource(pecaArte.imageRes),
-                contentDescription = null
+                contentDescription = stringResource(pecaArte.cntDesc)
             )
         }
 
